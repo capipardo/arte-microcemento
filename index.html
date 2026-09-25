@@ -487,6 +487,123 @@
         padding-right: 20px;
       }
     }
+    /* ===== FORMULARIO DE PRESUPUESTO ===== */
+
+.formulario-presupuesto {
+    margin-top: 40px;
+    padding: 45px;
+    background: #f7f3ec;
+    border: 1px solid rgba(38, 37, 34, 0.12);
+}
+
+.formulario-presupuesto h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #262522;
+}
+
+.formulario-presupuesto > p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #262522;
+    letter-spacing: .5px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #c9c3b8;
+    background: white;
+    font-family: inherit;
+    font-size: 15px;
+    color: #262522;
+    outline: none;
+}
+
+.campo textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #c9a875;
+}
+
+.campo input[type="file"] {
+    padding: 12px;
+    background: white;
+}
+
+.privacidad {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.privacidad input {
+    margin-top: 4px;
+}
+
+.formulario-presupuesto button {
+    grid-column: 1 / -1;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 16px 28px;
+    width: fit-content;
+}
+
+/* Formulario en móvil */
+@media (max-width: 700px) {
+
+    .formulario-presupuesto {
+        padding: 25px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-completo,
+    .privacidad,
+    .formulario-presupuesto button {
+        grid-column: 1;
+    }
+
+    .formulario-presupuesto button {
+        width: 100%;
+    }
+}
+
+    
   </style>
 </head>
 
@@ -708,35 +825,123 @@
   </section>
 
 
-  <section class="contacto" id="contacto">
-    <div class="contenedor contacto-contenido">
+ <section class="contacto" id="contacto">
+    <div class="contenedor">
 
-      <div>
-        <div class="mini-titulo" style="color:#4b3a25;">
-          Hablemos de tu proyecto
+        <div class="mini-titulo" style="color:#1b1b1b;">
+            Hablemos de tu proyecto
         </div>
 
-        <h2>¿Tienes un espacio en mente?</h2>
+        <h2>Solicita tu presupuesto</h2>
 
-        <p>
-          Cuéntanos qué quieres transformar y estudiaremos tu proyecto
-          para ofrecerte una propuesta personalizada.
+        <p class="form-intro">
+            Cuéntanos qué quieres transformar. Con algunos datos podremos
+            conocer mejor tu proyecto y preparar una propuesta personalizada.
         </p>
-      </div>
 
-      <div class="datos-contacto">
-        <p><strong>ARTE MICROCEMENTO</strong></p>
-        <p>Alcalá del Río · Sevilla</p>
+        <form class="formulario-presupuesto" id="formulario-presupuesto">
 
-        <!-- Añadiremos teléfono, WhatsApp y correo reales -->
+            <div class="form-grid">
 
-        <a href="#" class="boton">
-          Solicitar presupuesto
-        </a>
-      </div>
+                <div class="campo">
+                    <label for="nombre">Nombre y apellidos *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="localidad">Localidad *</label>
+                    <input type="text" id="localidad" name="localidad" required>
+                </div>
+
+                <div class="campo">
+                    <label for="espacio">¿Qué quieres transformar? *</label>
+                    <select id="espacio" name="espacio" required>
+                        <option value="">Selecciona una opción</option>
+                        <option>Baño</option>
+                        <option>Cocina</option>
+                        <option>Suelos</option>
+                        <option>Paredes</option>
+                        <option>Escaleras</option>
+                        <option>Exterior / Patio</option>
+                        <option>Local comercial</option>
+                        <option>Vivienda completa</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="metros">Superficie aproximada</label>
+                    <input type="text" id="metros" name="metros"
+                           placeholder="Ej.: 35 m²">
+                </div>
+
+                <div class="campo">
+                    <label for="fecha">¿Cuándo te gustaría realizarlo?</label>
+                    <select id="fecha" name="fecha">
+                        <option value="">Selecciona una opción</option>
+                        <option>Lo antes posible</option>
+                        <option>En menos de 1 mes</option>
+                        <option>Entre 1 y 3 meses</option>
+                        <option>Entre 3 y 6 meses</option>
+                        <option>Solo estoy pidiendo información</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="presupuesto">Presupuesto orientativo</label>
+                    <select id="presupuesto" name="presupuesto">
+                        <option value="">Prefiero no indicarlo</option>
+                        <option>Menos de 1.500 €</option>
+                        <option>1.500 € - 3.000 €</option>
+                        <option>3.000 € - 6.000 €</option>
+                        <option>6.000 € - 10.000 €</option>
+                        <option>Más de 10.000 €</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="campo campo-completo">
+                <label for="mensaje">Cuéntanos tu idea *</label>
+                <textarea id="mensaje" name="mensaje" rows="6"
+                    placeholder="Describe el espacio, qué quieres cambiar y el resultado que buscas..."
+                    required></textarea>
+            </div>
+
+            <div class="campo campo-completo">
+                <label for="fotos">Adjunta fotografías del espacio</label>
+                <input type="file" id="fotos" name="fotos"
+                       accept="image/*" multiple>
+                <small>
+                    Puedes seleccionar varias fotografías para ayudarnos a conocer el espacio.
+                </small>
+            </div>
+
+            <label class="privacidad">
+                <input type="checkbox" name="privacidad" required>
+                <span>
+                    He leído y acepto la política de privacidad. *
+                </span>
+            </label>
+
+            <button type="submit" class="boton boton-principal">
+                Solicitar presupuesto
+            </button>
+
+        </form>
 
     </div>
-  </section>
+</section>
 
 </main>
 
