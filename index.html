@@ -78,16 +78,27 @@
     }
 
     /* PORTADA */
-    .hero {
-      min-height: 100vh;
-      padding: 150px 25px 90px;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(25,25,23,.94), rgba(25,25,23,.67)),
-        linear-gradient(135deg, #292a27, #777269);
-      color: white;
-    }
+   .hero {
+    min-height: 100vh;
+    padding: 150px 25px 90px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,20,18,0.88) 0%,
+            rgba(20,20,18,0.70) 45%,
+            rgba(20,20,18,0.25) 100%
+        ),
+        url("Portada.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
 
     .hero-contenido {
       max-width: 1200px;
