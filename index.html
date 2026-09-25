@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Arte Microcemento | Microcemento y Alta Decoración en Sevilla</title>
+
+  <meta name="description" content="Arte Microcemento. Microcemento y alta decoración en Alcalá del Río y Sevilla. Transformamos espacios con acabados únicos y personalizados.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f1eb;
+      color: #262522;
+      line-height: 1.6;
+    }
+
+    /* CABECERA */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(28, 28, 26, 0.96);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .marca {
+      color: white;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .marca span {
+      color: #c9a875;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #c9a875;
+    }
+
+    /* PORTADA */
+    .hero {
+      min-height: 100vh;
+      padding: 150px 25px 90px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(25,25,23,.94), rgba(25,25,23,.67)),
+        linear-gradient(135deg, #292a27, #777269);
+      color: white;
+    }
+
+    .hero-contenido {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .mini-titulo {
+      color: #d0ad79;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .98;
+      margin-bottom: 28px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #ddd;
+      font-size: 20px;
+      margin-bottom: 38px;
+    }
+
+    .botones {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 2px;
+      transition: .25s;
+    }
+
+    .boton-principal {
+      background: #c9a875;
+      color: #1d1d1b;
+    }
+
+    .boton-principal:hover {
+      background: #e0c292;
+    }
+
+    .boton-secundario {
+      border: 1px solid #aaa;
+      color: white;
+    }
+
+    .boton-secundario:hover {
+      background: white;
+      color: #222;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 100px 25px;
+    }
+
+    .contenedor {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .titulo-seccion {
+      margin-bottom: 55px;
+    }
+
+    .titulo-seccion span {
+      display: block;
+      color: #9a7544;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .titulo-seccion h2 {
+      font-size: clamp(35px, 5vw, 55px);
+      line-height: 1.1;
+      max-width: 750px;
+    }
+
+    /* PRESENTACIÓN */
+    .presentacion {
+      background: #f4f1eb;
+    }
+
+    .presentacion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .bloque-imagen {
+      min-height: 500px;
+      background:
+        linear-gradient(135deg, rgba(41,41,38,.15), rgba(41,41,38,.4)),
+        #aaa69e;
+      position: relative;
+    }
+
+    .bloque-imagen::after {
+      content: "ARTE · TEXTURA · ESPACIO";
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      color: white;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .texto-presentacion h2 {
+      font-size: 45px;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .texto-presentacion p {
+      margin-bottom: 18px;
+      color: #55524d;
+      font-size: 17px;
+    }
+
+    /* SERVICIOS */
+    .servicios {
+      background: #22221f;
+      color: white;
+    }
+
+    .servicios .titulo-seccion span {
+      color: #d0ad79;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #444;
+    }
+
+    .servicio {
+      background: #292926;
+      padding: 45px 35px;
+      min-height: 270px;
+    }
+
+    .servicio-numero {
+      color: #c9a875;
+      font-size: 13px;
+      margin-bottom: 35px;
+    }
+
+    .servicio h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .servicio p {
+      color: #bdbbb6;
+    }
+
+    /* PROYECTOS */
+    .proyectos {
+      background: #e8e4dc;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-auto-rows: 320px;
+      gap: 15px;
+    }
+
+    .proyecto {
+      background: #aaa69e;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proyecto::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 45%, rgba(0,0,0,.68));
+    }
+
+    .proyecto-info {
+      position: relative;
+      z-index: 2;
+    }
+
+    .proyecto h3 {
+      font-size: 22px;
+    }
+
+    .proyecto p {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .proyecto-grande {
+      grid-row: span 2;
+    }
+
+    /* PROCESO */
+    .proceso {
+      background: #f4f1eb;
+    }
+
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .paso {
+      border-top: 1px solid #9b958c;
+      padding-top: 25px;
+    }
+
+    .paso span {
+      color: #9a7544;
+      font-size: 13px;
+    }
+
+    .paso h3 {
+      font-size: 22px;
+      margin: 15px 0 10px;
+    }
+
+    .paso p {
+      color: #66625d;
+    }
+
+    /* CONTACTO */
+    .contacto {
+      background: #c9a875;
+      color: #1d1d1b;
+    }
+
+    .contacto-contenido {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contacto h2 {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .contacto p {
+      font-size: 18px;
+      max-width: 650px;
+    }
+
+    .datos-contacto {
+      border-left: 1px solid rgba(0,0,0,.3);
+      padding-left: 40px;
+    }
+
+    .datos-contacto p {
+      margin: 10px 0;
+    }
+
+    .contacto .boton {
+      margin-top: 20px;
+      background: #22221f;
+      color: white;
+    }
+
+    /* PIE */
+    footer {
+      background: #181816;
+      color: #aaa;
+      padding: 35px 25px;
+    }
+
+    .footer-contenido {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MÓVIL */
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
+      }
+
+      .presentacion-grid,
+      .contacto-contenido {
+        grid-template-columns: 1fr;
+      }
+
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .galeria {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+      }
+
+      .proyecto-grande {
+        grid-row: auto;
+      }
+
+      .pasos {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .datos-contacto {
+        border-left: none;
+        border-top: 1px solid rgba(0,0,0,.3);
+        padding: 30px 0 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .pasos {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 20px;
+      }
+
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="marca">ARTE <span>MICROCEMENTO</span></div>
+
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="inicio">
+    <div class="hero-contenido">
+      <div class="mini-titulo">Microcemento · Alta decoración · Sevilla</div>
+
+      <h1>Superficies que transforman espacios.</h1>
+
+      <p>
+        Arte Microcemento crea ambientes con personalidad a través
+        de acabados continuos, texturas y soluciones decorativas
+        adaptadas a cada espacio.
+      </p>
+
+      <div class="botones">
+        <a href="#contacto" class="boton boton-principal">
+          Solicitar presupuesto
+        </a>
+
+        <a href="#trabajos" class="boton boton-secundario">
+          Ver trabajos
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="presentacion" id="nosotros">
+    <div class="contenedor presentacion-grid">
+
+      <div class="bloque-imagen"></div>
+
+      <div class="texto-presentacion">
+        <div class="mini-titulo">Arte Microcemento</div>
+
+        <h2>Cada superficie puede convertirse en algo único.</h2>
+
+        <p>
+          Trabajamos el microcemento y la alta decoración buscando
+          integrar cada acabado en el estilo y personalidad del espacio.
+        </p>
+
+        <p>
+          Viviendas, comercios y otros espacios pueden adquirir una
+          imagen completamente diferente mediante superficies continuas,
+          texturas y acabados decorativos.
+        </p>
+
+        <p>
+          Estudiamos cada proyecto de forma personalizada para encontrar
+          la solución estética que mejor encaje con el resultado buscado.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="servicios" id="servicios">
+    <div class="contenedor">
+
+      <div class="titulo-seccion">
+        <span>Qué hacemos</span>
+        <h2>Microcemento y decoración para transformar cada ambiente.</h2>
+      </div>
+
+      <div class="servicios-grid">
+
+        <article class="servicio">
+          <div class="servicio-numero">01</div>
+          <h3>Suelos</h3>
+          <p>
+            Acabados continuos para crear espacios visualmente amplios,
+            actuales y con personalidad.
+          </p>
+        </article>
+
+        <article class="servicio">
+          <div class="servicio-numero">02</div>
+          <h3>Paredes</h3>
+          <p>
+            Superficies decorativas capaces de convertirse en una parte
+            protagonista del ambiente.
+          </p>
+        </article>
+
+        <article class="servicio">
+          <div class="servicio-numero">03</div>
+          <h3>Baños</h3>
+          <p>
+            Diseños contemporáneos y superficies continuas para renovar
+            la estética del baño.
+          </p>
+        </article>
+
+        <article class="servicio">
+          <div class="servicio-numero">04</div>
+          <h3>Cocinas</h3>
+          <p>
+            Soluciones decorativas pensadas para integrar materiales,
+            mobiliario y superficies.
+          </p>
+        </article>
+
+        <article class="servicio">
+          <div class="servicio-numero">05</div>
+          <h3>Escaleras</h3>
+          <p>
+            Una forma de convertir elementos estructurales en piezas
+            integradas dentro del diseño.
+          </p>
+        </article>
+
+        <article class="servicio">
+          <div class="servicio-numero">06</div>
+          <h3>Alta decoración</h3>
+          <p>
+            Texturas y acabados personalizados para proyectos que buscan
+            una estética diferente.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="proyectos" id="trabajos">
+    <div class="contenedor">
+
+      <div class="titulo-seccion">
+        <span>Trabajos</span>
+        <h2>El resultado habla por nosotros.</h2>
+      </div>
+
+      <div class="galeria">
+
+        <div class="proyecto proyecto-grande">
+          <div class="proyecto-info">
+            <h3>Microcemento</h3>
+            <p>Proyecto realizado</p>
+          </div>
+        </div>
+
+        <div class="proyecto">
+          <div class="proyecto-info">
+            <h3>Interiores</h3>
+            <p>Acabados decorativos</p>
+          </div>
+        </div>
+
+        <div class="proyecto">
+          <div class="proyecto-info">
+            <h3>Texturas</h3>
+            <p>Alta decoración</p>
+          </div>
+        </div>
+
+        <div class="proyecto">
+          <div class="proyecto-info">
+            <h3>Superficies</h3>
+            <p>Diseño continuo</p>
+          </div>
+        </div>
+
+        <div class="proyecto">
+          <div class="proyecto-info">
+            <h3>Detalles</h3>
+            <p>Acabados personalizados</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="proceso">
+    <div class="contenedor">
+
+      <div class="titulo-seccion">
+        <span>Nuestra forma de trabajar</span>
+        <h2>De la idea al resultado final.</h2>
+      </div>
+
+      <div class="pasos">
+
+        <div class="paso">
+          <span>01</span>
+          <h3>Cuéntanos tu idea</h3>
+          <p>Conocemos el espacio y el resultado que quieres conseguir.</p>
+        </div>
+
+        <div class="paso">
+          <span>02</span>
+          <h3>Estudiamos el proyecto</h3>
+          <p>Valoramos las características y posibilidades del trabajo.</p>
+        </div>
+
+        <div class="paso">
+          <span>03</span>
+          <h3>Definimos el acabado</h3>
+          <p>Seleccionamos contigo la estética más adecuada.</p>
+        </div>
+
+        <div class="paso">
+          <span>04</span>
+          <h3>Transformamos</h3>
+          <p>Convertimos la propuesta en un espacio con personalidad.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contacto" id="contacto">
+    <div class="contenedor contacto-contenido">
+
+      <div>
+        <div class="mini-titulo" style="color:#4b3a25;">
+          Hablemos de tu proyecto
+        </div>
+
+        <h2>¿Tienes un espacio en mente?</h2>
+
+        <p>
+          Cuéntanos qué quieres transformar y estudiaremos tu proyecto
+          para ofrecerte una propuesta personalizada.
+        </p>
+      </div>
+
+      <div class="datos-contacto">
+        <p><strong>ARTE MICROCEMENTO</strong></p>
+        <p>Alcalá del Río · Sevilla</p>
+
+        <!-- Añadiremos teléfono, WhatsApp y correo reales -->
+
+        <a href="#" class="boton">
+          Solicitar presupuesto
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="footer-contenido">
+    <div>
+      <strong>ARTE MICROCEMENTO</strong><br>
+      Microcemento · Alta decoración
+    </div>
+
+    <div>
+      Alcalá del Río · Sevilla
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
