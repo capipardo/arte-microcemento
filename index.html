@@ -937,7 +937,10 @@
             <button type="submit" class="boton boton-principal">
                 Solicitar presupuesto
             </button>
-
+<p id="mensaje-exito"
+   style="display:none; margin-top:15px; padding:12px 15px; background:#e8f5e9; color:#1b5e20; border-radius:6px; font-weight:600;">
+  ✓ Solicitud enviada correctamente. Nos pondremos en contacto contigo lo antes posible.
+</p>
         </form>
 
     </div>
@@ -986,8 +989,9 @@
     const inputFotos = document.getElementById("fotos");
     const archivos = Array.from(inputFotos.files);
 
-    botonEnviar.disabled = true;
-    botonEnviar.textContent = archivos.length > 0
+    
+   document.getElementById("mensaje-exito").style.display = "none";
+botonEnviar.disabled = true;
       ? "Subiendo fotos..."
       : "Enviando...";
 
@@ -1047,9 +1051,8 @@
         templateParams
       );
 
-      alert(
-        "¡Solicitud enviada correctamente! Nos pondremos en contacto contigo lo antes posible."
-      );
+     const mensajeExito = document.getElementById("mensaje-exito");
+mensajeExito.style.display = "block";
 
       formularioPresupuesto.reset();
 
