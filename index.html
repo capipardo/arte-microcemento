@@ -959,5 +959,65 @@
   </div>
 </footer>
 
+  <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init({
+    publicKey: "rCA7-0hwm2DmG1eDo"
+  });
+
+  const formularioPresupuesto = document.getElementById("formulario-presupuesto");
+
+  formularioPresupuesto.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const botonEnviar = formularioPresupuesto.querySelector('button[type="submit"]');
+
+    const nombre = document.getElementById("nombre").value;
+    const telefono = document.getElementById("telefono").value;
+    const email = document.getElementById("email").value;
+    const localidad = document.getElementById("localidad").value;
+    const espacio = document.getElementById("espacio").value;
+    const metros = document.getElementById("metros").value;
+    const fecha = document.getElementById("fecha").value;
+    const presupuesto = document.getElementById("presupuesto").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const templateParams = {
+      name: nombre,
+      email: email,
+      phone: telefono,
+      service: espacio,
+      message:
+        "Localidad: " + localidad + "\n" +
+        "Superficie aproximada: " + metros + " m²\n" +
+        "Fecha prevista: " + fecha + "\n" +
+        "Presupuesto aproximado: " + presupuesto + "\n\n" +
+        "Descripción del proyecto:\n" + mensaje
+    };
+
+    botonEnviar.disabled = true;
+    botonEnviar.textContent = "Enviando...";
+
+    emailjs.send(
+      "service_ltio3yf",
+      "template_kzf6o8t",
+      templateParams
+    )
+    .then(function() {
+      alert("¡Solicitud enviada correctamente! Nos pondremos en contacto contigo lo antes posible.");
+      formularioPresupuesto.reset();
+      botonEnviar.disabled = false;
+      botonEnviar.textContent = "Solicitar presupuesto";
+    })
+    .catch(function(error) {
+      console.error("Error al enviar:", error);
+      alert("Ha ocurrido un error al enviar la solicitud. Por favor, inténtalo de nuevo.");
+      botonEnviar.disabled = false;
+      botonEnviar.textContent = "Solicitar presupuesto";
+    });
+  });
+</script>
 </body>
 </html>
