@@ -961,7 +961,6 @@
 
   <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script>
   emailjs.init({
     publicKey: "rCA7-0hwm2DmG1eDo"
@@ -969,7 +968,7 @@
 
   const formularioPresupuesto = document.getElementById("formulario-presupuesto");
 
-  formularioPresupuesto.addEventListener("submit", function(event) {
+  formularioPresupuesto.addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const botonEnviar = formularioPresupuesto.querySelector('button[type="submit"]');
@@ -984,39 +983,87 @@
     const presupuesto = document.getElementById("presupuesto").value;
     const mensaje = document.getElementById("mensaje").value;
 
-    const templateParams = {
-      name: nombre,
-      email: email,
-      phone: telefono,
-      service: espacio,
-      message:
-        "Localidad: " + localidad + "\n" +
-        "Superficie aproximada: " + metros + " m²\n" +
-        "Fecha prevista: " + fecha + "\n" +
-        "Presupuesto aproximado: " + presupuesto + "\n\n" +
-        "Descripción del proyecto:\n" + mensaje
-    };
+    const inputFotos = document.getElementById("fotos");
+    const archivos = Array.from(inputFotos.files);
 
     botonEnviar.disabled = true;
-    botonEnviar.textContent = "Enviando...";
+    botonEnviar.textContent = archivos.length > 0
+      ? "Subiendo fotos..."
+      : "Enviando...";
 
-    emailjs.send(
-      "service_ltio3yf",
-      "template_kzf6o8t",
-      templateParams
-    )
-    .then(function() {
-      alert("¡Solicitud enviada correctamente! Nos pondremos en contacto contigo lo antes posible.");
+    try {
+      const urlsFotos = [];
+
+      for (const archivo of archivos) {
+        const formData = new FormData();
+        formData.append("file", archivo);
+        formData.append("upload_preset", "arte_microcemento_upload");
+
+        const respuesta = await fetch(
+          "https://api.cloudinary.com/v1_1/w5bshywf/image/upload",
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+        if (!respuesta.ok) {
+          throw new Error("Error al subir una fotografía");
+        }
+
+        const datos = await respuesta.json();
+        urlsFotos.push(datos.secure_url);
+      }
+
+      botonEnviar.textContent = "Enviando solicitud...";
+
+      let textoFotos = "No se adjuntaron fotografías.";
+
+      if (urlsFotos.length > 0) {
+        textoFotos =
+          "Fotografías del espacio:\n" +
+          urlsFotos
+            .map((url, index) => `Foto ${index + 1}: ${url}`)
+            .join("\n");
+      }
+
+      const templateParams = {
+        name: nombre,
+        email: email,
+        phone: telefono,
+        service: espacio,
+        message:
+          "Localidad: " + localidad + "\n" +
+          "Superficie aproximada: " + metros + " m²\n" +
+          "Fecha prevista: " + fecha + "\n" +
+          "Presupuesto aproximado: " + presupuesto + "\n\n" +
+          "Descripción del proyecto:\n" + mensaje + "\n\n" +
+          textoFotos
+      };
+
+      await emailjs.send(
+        "service_ltio3yf",
+        "template_kzf6o8t",
+        templateParams
+      );
+
+      alert(
+        "¡Solicitud enviada correctamente! Nos pondremos en contacto contigo lo antes posible."
+      );
+
       formularioPresupuesto.reset();
-      botonEnviar.disabled = false;
-      botonEnviar.textContent = "Solicitar presupuesto";
-    })
-    .catch(function(error) {
+
+    } catch (error) {
       console.error("Error al enviar:", error);
-      alert("Ha ocurrido un error al enviar la solicitud. Por favor, inténtalo de nuevo.");
+
+      alert(
+        "Ha ocurrido un error al enviar la solicitud. Por favor, inténtalo de nuevo."
+      );
+
+    } finally {
       botonEnviar.disabled = false;
       botonEnviar.textContent = "Solicitar presupuesto";
-    });
+    }
   });
 </script>
 </body>
