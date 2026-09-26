@@ -988,7 +988,19 @@
 
     const inputFotos = document.getElementById("fotos");
     const archivos = Array.from(inputFotos.files);
+if (archivos.length > 5) {
+  alert("Puedes adjuntar un máximo de 5 fotografías.");
+  return;
+}
 
+const TAMANO_MAXIMO = 5 * 1024 * 1024; // 5 MB
+
+for (const archivo of archivos) {
+  if (archivo.size > TAMANO_MAXIMO) {
+    alert(`La fotografía "${archivo.name}" supera el máximo permitido de 5 MB.`);
+    return;
+  }
+}
     
    document.getElementById("mensaje-exito").style.display = "none";
 botonEnviar.disabled = true;
