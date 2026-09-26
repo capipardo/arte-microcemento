@@ -992,8 +992,10 @@
     
    document.getElementById("mensaje-exito").style.display = "none";
 botonEnviar.disabled = true;
-      ? "Subiendo fotos..."
-      : "Enviando...";
+
+botonEnviar.textContent = archivos.length > 0
+  ? "Subiendo fotos..."
+  : "Enviando...";
 
     try {
       const urlsFotos = [];
