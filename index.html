@@ -143,23 +143,39 @@
      border-radius: 999px;
       transition: .25s;
     }
-.boton-whatsapp {
+.redes-botones {
     flex-basis: 100%;
-    width: fit-content;
-    margin: 5px auto 0;
-    padding: 14px 30px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.boton-red {
+    display: inline-block;
+    padding: 11px 22px;
     border-radius: 999px;
-    background: #25D366;
     color: white;
     text-decoration: none;
     font-weight: 700;
-    text-align: center;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.boton-whatsapp:hover {
+.boton-red:hover {
     transform: translateY(-2px);
-    opacity: 0.92;
+    opacity: 0.9;
+}
+
+.social-whatsapp {
+    background: #25D366;
+}
+
+.social-instagram {
+    background: #E4405F;
+}
+
+.social-facebook {
+    background: #1877F2;
 }
     .boton-principal {
       background: #c9a875;
@@ -684,13 +700,36 @@
           Ver trabajos
         </a>
         <a
-  href="https://wa.me/34660264486?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20un%20trabajo%20de%20microcemento."
-  target="_blank"
-  rel="noopener noreferrer"
-  class="boton-whatsapp"
->
-  WhatsApp
-</a>
+ <div class="redes-botones">
+
+  <a
+    href="https://wa.me/34660264486?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20un%20trabajo%20de%20microcemento."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="boton-red social-whatsapp"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="boton-red social-instagram"
+  >
+    Instagram
+  </a>
+
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="boton-red social-facebook"
+  >
+    Facebook
+  </a>
+
+</div>
       </div>
     </div>
   </section>
