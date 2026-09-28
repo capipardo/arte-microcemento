@@ -1050,20 +1050,124 @@
 
 </main>
 
+<style>
+.footer-nuevo {
+    background: #11110f;
+    color: #fff;
+    padding-top: 70px;
+}
 
-<footer>
-  <div class="footer-contenido">
-    <div>
-      <strong>ARTE MICROCEMENTO</strong><br>
-      Microcemento · Alta decoración
-    </div>
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px 60px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.5fr 1fr;
+    gap: 70px;
+}
 
-    <div>
-      Alcalá del Río · Sevilla
-    </div>
-  </div>
-</footer>
+.footer-columna h3 {
+    color: #c9a875;
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+}
 
+.footer-columna p {
+    color: #d8d5cf;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.footer-zonas a {
+    display: block;
+    color: #e1ded8;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: .2s;
+}
+
+.footer-zonas a:hover {
+    color: #c9a875;
+}
+
+.footer-boton {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 15px 28px;
+    background: #c9a875;
+    color: #171715;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    transition: .2s;
+}
+
+.footer-boton:hover {
+    transform: translateY(-2px);
+    opacity: .9;
+}
+
+.footer-contacto a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.footer-redes a {
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.footer-whatsapp {
+    background: #25D366;
+}
+
+.footer-instagram {
+    background: #E4405F;
+}
+
+.footer-inferior {
+    border-top: 1px solid rgba(255,255,255,.15);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 30px;
+    display: flex;
+    justify-content: space-between;
+    color: #bbb7b0;
+}
+
+.footer-inferior strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.footer-inferior span {
+    display: block;
+}
+
+@media (max-width: 800px) {
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-inferior {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+}
+</style>
   <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
